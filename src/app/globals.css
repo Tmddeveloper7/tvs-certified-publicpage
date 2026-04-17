@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+/* PLAY BUTTON ANIMATION */
+
+
+/* Floating animation */
+@keyframes floatAnim {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Blinking / pulse animation */
+@keyframes pulseAnim {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.7;
+  }
+}
+
+/* Apply both animations */
+.play-btn-anim {
+    cursor: pointer;
+  animation: floatAnim 3s ease-in-out infinite,
+             pulseAnim 2s ease-in-out infinite;
+}
