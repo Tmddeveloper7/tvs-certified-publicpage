@@ -324,21 +324,21 @@ export const vehiclesData = {
       year: 2019,
       image: "/Tvs-certified-stock-images/RENAULT KWID RXL2019.jpeg",
     },
-    {
-      model: "S-PRESSO VXI+",
-      year: 2020,
-      image: "/Tvs-certified-stock-images/S-PRESSO VXI+2020.jpeg",
-    },
+    // {
+    //   model: "S-PRESSO VXI+",
+    //   year: 2020,
+    //   image: "/Tvs-certified-stock-images/S-PRESSO VXI+2020.jpeg",
+    // },
     // {
     //   model: "SANTRO 1.1MT MAGNA BSIV",
     //   year: 2018,
     //   image: "/Tvs-certified-stock-images/SANTRO 1.1MT MAGNA BSIV2018.jpeg",
     // },
-    {
-      model: "SKODA RAPID AMBITION (81KW, TDI CR)",
-      year: 2019,
-      image: "/Tvs-certified-stock-images/SKODA RAPID AMBITION (81KW, TDI CR)2019.jpeg",
-    },
+    // {
+    //   model: "SKODA RAPID AMBITION (81KW, TDI CR)",
+    //   year: 2019,
+    //   image: "/Tvs-certified-stock-images/SKODA RAPID AMBITION (81KW, TDI CR)2019.jpeg",
+    // },
     {
       model: "SKODA RAPID AMBITION 77KW BS",
       year: 2012,
