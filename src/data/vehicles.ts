@@ -219,21 +219,6 @@ export const vehiclesData = {
     ],
   },
   stockVehicles: [
-    // {
-    //   model: "MARUTI ALTO K10 VXI AMT (O) BS",
-    //   year: 2018,
-    //   image: "/Tvs-certified-stock-images/MARUTI ALTO K10 VXI AMT (O) BS2018.jpeg",
-    // },
-    {
-      model: "MARUTI BALENO SIGMA PETROL",
-      year: 2018,
-      image: "/Tvs-certified-stock-images/MARUTI BALENO SIGMA PETROL2018.jpg",
-    },
-    // {
-    //   model: "MARUTI CELERIO ZXI AMT (O) BS",
-    //   year: 2018,
-    //   image: "/Tvs-certified-stock-images/MARUTI CELERIO ZXI AMT (O) BS 2018.jpeg",
-    // },
     {
       model: "MARUTI EECO 5 STR STD",
       year: 2021,
@@ -269,21 +254,11 @@ export const vehiclesData = {
       year: 2018,
       image: "/Tvs-certified-stock-images/MARUTI SWIFT ZXI+2018.jpeg",
     },
-    // {
-    //   model: "MARUTI SWIFT",
-    //   year: 2013,
-    //   image: "/Tvs-certified-stock-images/MARUTI SWIFT2013.jpeg",
-    // },
     {
       model: "MARUTI VITARA BREZZA VDI O BS4",
       year: 2017,
       image: "/Tvs-certified-stock-images/MARUTI VITARA BREZZA VDI O BS42017.jpeg",
     },
-    // {
-    //   model: "MARUTI VITARA BREZZA ZDI AMT",
-    //   year: 2019,
-    //   image: "/Tvs-certified-stock-images/MARUTI VITARA BREZZA ZDI AMT2019.jpeg",
-    // },
     {
       model: "MICRA DIESEL LXV",
       year: 2011,
@@ -299,11 +274,6 @@ export const vehiclesData = {
       year: 2018,
       image: "/Tvs-certified-stock-images/NEXT GEN VERNA VERNA 1.4 VTVT2018.jpeg",
     },
-    // {
-    //   model: "NISSAN TERRANO XL dCi OPTION",
-    //   year: 2015,
-    //   image: "/Tvs-certified-stock-images/NISSAN TERRANO XL dCi OPTION2015.jpeg",
-    // },
     {
       model: "Not Available",
       year: 2009,
@@ -324,21 +294,6 @@ export const vehiclesData = {
       year: 2019,
       image: "/Tvs-certified-stock-images/RENAULT KWID RXL2019.jpeg",
     },
-    // {
-    //   model: "S-PRESSO VXI+",
-    //   year: 2020,
-    //   image: "/Tvs-certified-stock-images/S-PRESSO VXI+2020.jpeg",
-    // },
-    // {
-    //   model: "SANTRO 1.1MT MAGNA BSIV",
-    //   year: 2018,
-    //   image: "/Tvs-certified-stock-images/SANTRO 1.1MT MAGNA BSIV2018.jpeg",
-    // },
-    // {
-    //   model: "SKODA RAPID AMBITION (81KW, TDI CR)",
-    //   year: 2019,
-    //   image: "/Tvs-certified-stock-images/SKODA RAPID AMBITION (81KW, TDI CR)2019.jpeg",
-    // },
     {
       model: "SKODA RAPID AMBITION 77KW BS",
       year: 2012,
@@ -354,11 +309,6 @@ export const vehiclesData = {
       year: 2021,
       image: "/Tvs-certified-stock-images/SONET G1.0T 7DCT GTX PLUS2021.jpeg",
     },
-    // {
-    //   model: "SONET G1.2 5MT HTK",
-    //   year: 2022,
-    //   image: "/Tvs-certified-stock-images/SONET G1.2 5MT HTK2022.jpeg",
-    // },
     {
       model: "TATA INDICA VISTA AQUA QJET",
       year: 2013,
@@ -374,21 +324,6 @@ export const vehiclesData = {
       year: 2023,
       image: "/Tvs-certified-stock-images/TATA NEXON FRLS PMT2023.jpeg",
     },
-    // {
-    //   model: "TATA NEXON XMA 1.2 RTN BS6",
-    //   year: 2021,
-    //   image: "/Tvs-certified-stock-images/TATA NEXON XMA 1.2 RTN BS62021.jpeg",
-    // },
-    {
-      model: "TATA PUNCH ADV 1.2P BS6 MT",
-      year: 2022,
-      image: "/Tvs-certified-stock-images/TATA PUNCH ADV 1.2P BS6 MT2022.jpeg",
-    },
-    // {
-    //   model: "TATA TIAGO XZ+ 1.2 RTN BS4",
-    //   year: 2019,
-    //   image: "/Tvs-certified-stock-images/TATA TIAGO XZ+ 1.2 RTN BS42019.jpeg",
-    // },
     {
       model: "TATA TIGOR XZ 1 2 RTN BSIV",
       year: 2017,
@@ -409,11 +344,6 @@ export const vehiclesData = {
       year: 2015,
       image: "/Tvs-certified-stock-images/TOYOTA ETIOS LIVA G2015.jpeg",
     },
-    // {
-    //   model: "TOYOTA ETIOS",
-    //   year: 2011,
-    //   image: "/Tvs-certified-stock-images/TOYOTA ETIOS2011.jpeg",
-    // },
     {
       model: "TOYOTA GLANZA S PETROL [MT]",
       year: 2022,
@@ -424,21 +354,11 @@ export const vehiclesData = {
       year: 2012,
       image: "/Tvs-certified-stock-images/TOYOTA INNOVA 2.5 V2012.jpeg",
     },
-    // {
-    //   model: "TOYOTA URBAN CRUISER (HIGH AT)",
-    //   year: 2021,
-    //   image: "/Tvs-certified-stock-images/TOYOTA URBAN CRUISER (HIGH AT)2021.jpeg",
-    // },
     {
       model: "TRIBER RXE PETROL MT 1.0L ECE",
       year: 2020,
       image: "/Tvs-certified-stock-images/TRIBER RXE PETROL MT 1.0L ECE2020.jpeg",
     },
-    // {
-    //   model: "VENTO 1.5 TDI AT -HIGHLINE PLU",
-    //   year: 2017,
-    //   image: "/Tvs-certified-stock-images/VENTO 1.5 TDI AT -HIGHLINE PLU2017.jpeg",
-    // },
     {
       model: "VENTO 1.6 CR MT HIGHLINE",
       year: 2011,
