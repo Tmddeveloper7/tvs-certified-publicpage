@@ -364,11 +364,11 @@ export const vehiclesData = {
       year: 2013,
       image: "/Tvs-certified-stock-images/TATA INDICA VISTA AQUA QJET2013.jpeg",
     },
-    {
-      model: "TATA NEXON EV XZ+",
-      year: 2022,
-      image: "/Tvs-certified-stock-images/TATA NEXON EV XZ+2022.jpeg",
-    },
+    // {
+    //   model: "TATA NEXON EV XZ+",
+    //   year: 2022,
+    //   image: "/Tvs-certified-stock-images/TATA NEXON EV XZ+2022.jpeg",
+    // },
     {
       model: "TATA NEXON FRLS PMT",
       year: 2023,
