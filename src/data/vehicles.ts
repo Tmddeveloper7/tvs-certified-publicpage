@@ -345,11 +345,6 @@ export const vehiclesData = {
       image: "/Tvs-certified-stock-images/TOYOTA ETIOS LIVA G2015.jpeg",
     },
     {
-      model: "TOYOTA GLANZA S PETROL [MT]",
-      year: 2022,
-      image: "/Tvs-certified-stock-images/TOYOTA GLANZA S PETROL [MT]2022.jpeg",
-    },
-    {
       model: "TOYOTA INNOVA 2.5 V",
       year: 2012,
       image: "/Tvs-certified-stock-images/TOYOTA INNOVA 2.5 V2012.jpeg",
