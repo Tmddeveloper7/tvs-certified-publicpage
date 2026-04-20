@@ -35,11 +35,38 @@ const FALLBACK_LIST: CardVehicle[] = vehiclesData.latestVehicles.vehicles.map((v
   model: vehicle.model,
   inspection: vehicle.inspection,
   location: vehicle.location,
-  watching: vehicle.watching,
+  watching: vehicle.watching ?? "",
   currentBid: vehicle.currentBid ?? "₹ —",
   endsIn: vehicle.endsIn ?? "—",
-  image: vehicle.image,
+  image: vehicle.image ?? "/car-1.webp",
 }));
+
+function getWeeklyVehicles(): CardVehicle[] {
+  const now = new Date();
+  const startOfYear = new Date(now.getFullYear(), 0, 1);
+  const weekNumber = Math.floor((now.getTime() - startOfYear.getTime()) / (1000 * 60 * 60 * 24 * 7));
+  const vehiclesPerWeek = 6;
+  const totalVehicles = vehiclesData.stockVehicles.length;
+  const startIndex = (weekNumber * vehiclesPerWeek) % totalVehicles;
+  
+  const selectedVehicles = [];
+  for (let i = 0; i < vehiclesPerWeek; i++) {
+    const vehicleIndex = (startIndex + i) % totalVehicles;
+    const vehicle = vehiclesData.stockVehicles[vehicleIndex];
+    selectedVehicles.push({
+      id: `stock-${vehicleIndex}`,
+      model: vehicle.model,
+      inspection: `If you want to check the detail please login or become a member!`,
+      location: "Across India",
+      watching: "",
+      currentBid: "₹ —",
+      endsIn: "—",
+      image: vehicle.image,
+      year: vehicle.year,
+    });
+  }
+  return selectedVehicles;
+}
 
 function formatCurrency(value?: number) {
   if (!value || Number.isNaN(value)) return "₹ —";
@@ -67,7 +94,7 @@ function extractImage(url?: string) {
 
 export function VehiclesSection() {
   const { latestVehicles } = vehiclesData;
-  const [cards, setCards] = useState<CardVehicle[]>(FALLBACK_LIST);
+  const [cards, setCards] = useState<CardVehicle[]>(getWeeklyVehicles());
   const [isLive, setIsLive] = useState(false);
 
   const API_URL =
@@ -87,13 +114,12 @@ export function VehiclesSection() {
         const payload = await res.json();
         const data: ApiVehicle[] = Array.isArray(payload?.data) ? payload.data : [];
 
-        if (!cancelled && data.length > 1) {
+        if (!cancelled && data.length > 0) {
           const mapped: CardVehicle[] = data.map((item, idx) => ({
             id: `${item.MakeModel ?? "vehicle"}-${idx}`,
             model: item.MakeModel ?? "TVS Certified Vehicle",
-            inspection: `${item.year_of_mfg ?? ""} • ${item.fuel_type ?? "Fuel"} • ${
-              item.transmission ?? "Transmission"
-            }`,
+            inspection: `${item.year_of_mfg ?? ""} • ${item.fuel_type ?? "Fuel"} • ${item.transmission ?? "Transmission"
+              }`,
             location: "Across India",
             watching: "Live auction",
             currentBid: formatCurrency(item.offered_price),
@@ -143,10 +169,15 @@ export function VehiclesSection() {
                   className="object-cover"
                   priority={false}
                 />
-                <span className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-black/70 px-3 py-1 text-xs font-semibold text-white">
-                  <FiEye className="h-3.5 w-3.5" />
-                  {vehicle.watching}
-                </span>
+                {
+                  vehicle.watching && (
+                    <span className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-black/70 px-3 py-1 text-xs font-semibold text-white">
+                      {vehicle.watching && <FiEye className="h-3.5 w-3.5" />}
+                      {vehicle.watching}
+                    </span>
+                  )
+                }
+
                 {/* <div className="absolute inset-x-0 bottom-0 bg-black/80 px-4 py-3 text-xs font-medium text-white">
                   <span className="inline-flex items-center gap-2">
                     <FiMapPin className="h-3.5 w-3.5" />
@@ -156,56 +187,58 @@ export function VehiclesSection() {
               </div>
               <div className="p-6">
                 <h3 className="text-base font-semibold text-zinc-900">{vehicle.model}</h3>
-                <p className="mt-1 text-sm text-zinc-500">{vehicle.inspection}</p>
-        <motion.div
-  whileHover={{ scale: 1.04 }}
-  whileTap={{ scale: 0.97 }}
-  className="mt-5 w-full"
->
-  <a
-    href="https://tvscertified.in/apps/login"
-    target="_blank"
-    rel="noreferrer noopener"
-    className="relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-4 py-3 text-sm font-semibold text-white overflow-hidden group"
-  >
-    {/* Text + Icon */}
-    <span className="relative z-10 flex items-center gap-2">
-      {isLive ? "Unlock full details by signing in" : "Unlock full details by signing in"}
-      <FiArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-    </span>
+                <p className={`${isLive ? "mt-1 text-sm text-zinc-500" : "mt-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-sm"}`}>{vehicle.inspection}</p>
+                {isLive &&(
+                <motion.div
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="mt-5 w-full"
+                >
+                  <a
+                    href="https://tvscertified.in/apps/login"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-4 py-3 text-sm font-semibold text-white overflow-hidden group"
+                  >
+                    {/* Text + Icon */}
+                    <span className="relative z-10 flex items-center gap-2">
+                      {isLive ? "Unlock full details by signing in" : "Unlock full details by signing in"}
+                      <FiArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
 
-    {/* Smooth Hover Background */}
-    <span className="absolute inset-0 bg-[#1d4ed8] opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                    {/* Smooth Hover Background */}
+                    <span className="absolute inset-0 bg-[#1d4ed8] opacity-0 group-hover:opacity-100 transition duration-300"></span>
 
-    {/* Shine Effect */}
-    <span className="absolute left-[-75%] top-0 h-full w-[50%] bg-white/20 skew-x-12 transition-all duration-500 group-hover:left-[125%]"></span>
-  </a>
-</motion.div>
+                    {/* Shine Effect */}
+                    <span className="absolute left-[-75%] top-0 h-full w-[50%] bg-white/20 skew-x-12 transition-all duration-500 group-hover:left-[125%]"></span>
+                  </a>
+                </motion.div>
+                )}
               </div>
             </article>
           ))}
         </div>
-<div className="mt-10 flex justify-center">
-  <motion.div
-    whileHover="hover"
-    initial="rest"
-    animate="rest"
-  >
-    <Link
-      href={latestVehicles.viewAll.href}
-      className="group inline-flex items-center gap-2 text-sm font-semibold text-[#2563EB]"
-    >
-      <span className="relative">
-        {latestVehicles.viewAll.label}
-        {/* Underline animation */}
-        <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#2563EB] transition-all duration-300 group-hover:w-full"></span>
-      </span>
+        <div className="mt-10 flex justify-center">
+          <motion.div
+            whileHover="hover"
+            initial="rest"
+            animate="rest"
+          >
+            <Link
+              href={latestVehicles.viewAll.href}
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-[#2563EB]"
+            >
+              <span className="relative">
+                {latestVehicles.viewAll.label}
+                {/* Underline animation */}
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#2563EB] transition-all duration-300 group-hover:w-full"></span>
+              </span>
 
-      {/* Arrow animation */}
-      <FiArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-    </Link>
-  </motion.div>
-</div>
+              {/* Arrow animation */}
+              <FiArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+        </div>
       </Container>
     </section>
   );
