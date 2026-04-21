@@ -187,8 +187,10 @@ export function VehiclesSection() {
               </div>
               <div className="p-6">
                 <h3 className="text-base font-semibold text-zinc-900">{vehicle.model}</h3>
-                <p className={`${isLive ? "mt-1 text-sm text-zinc-500" : "mt-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-sm"}`}>{vehicle.inspection}</p>
                 {isLive &&(
+                <p className={"mt-1 text-sm text-zinc-500" }>{vehicle.inspection}</p>
+                )}
+                {/* {isLive &&( */}
                 <motion.div
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
@@ -213,7 +215,7 @@ export function VehiclesSection() {
                     <span className="absolute left-[-75%] top-0 h-full w-[50%] bg-white/20 skew-x-12 transition-all duration-500 group-hover:left-[125%]"></span>
                   </a>
                 </motion.div>
-                )}
+                {/* )} */}
               </div>
             </article>
           ))}
