@@ -5,8 +5,6 @@ import Link from "next/link";
 import { FiArrowRight, FiPlay } from "react-icons/fi";
 import { LuShieldCheck } from "react-icons/lu";
 import { motion } from "framer-motion";
-
-
 import { aboutUsData } from "@/data/aboutus";
 import { Container } from "@/components/layout/Container";
 
