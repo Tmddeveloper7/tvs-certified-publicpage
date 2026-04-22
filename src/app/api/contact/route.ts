@@ -5,7 +5,7 @@ const TO_EMAIL =
   process.env.RESEND_TO_EMAIL || "tvscertified@gmail.com";
 const FROM_EMAIL =
   process.env.RESEND_FROM_EMAIL ||
-  "TVS Certified <onboarding@resend.dev>";
+  "TVS Certified <support@tvscertified.in>";
 
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 
