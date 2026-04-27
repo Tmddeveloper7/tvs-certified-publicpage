@@ -136,6 +136,7 @@ const htmlBody = `
 
 </div>
 `;
+    const recipients = getRecipients(state);
     const adminRes = await fetch(RESEND_ENDPOINT, {
       method: "POST",
       headers: {
@@ -144,7 +145,8 @@ const htmlBody = `
       },
       body: JSON.stringify({
         from: FROM_EMAIL,
-        to: [TO_EMAIL],
+        to: recipients.to,
+        cc: recipients.cc,
         reply_to: email,
         subject: "New contact from TVS Certified website",
         text: textBody,
@@ -288,4 +290,54 @@ support@tvscertified.in
       { status: 500 }
     );
   }
+}
+
+function getRecipients(rawState?: string): { to: string[]; cc: string[] } {
+  const state = (rawState || "").trim().toLowerCase();
+
+  const dinesh = "dinesh.aravindakshan@tvs.in";
+  const hiro = "hiroyuki.takase@tvs.in";
+
+  if (state.includes("tamil")) {
+    return {
+      to: [
+        "Vadivelu Thirunavukkarasu <Vadivelu.thirunavukkarasu@tvs.in>",
+      ],
+      cc: [
+        "Seetharaman Jayaram <seetharaman.jayaram@tvs.in>",
+        `A Dinesh <${dinesh}>`,
+        `Hiroyuki Takase <${hiro}>`,
+      ],
+    };
+  }
+
+  if (state.includes("kerala") || state === "kl") {
+    return {
+      to: ["Thomas <thomas.mathew@tvs.in>"],
+      cc: [
+        "Akash <akash.viswanath@tvs.in>",
+        "Prasanth Prasannakumar <prasanth.prasannakumar@tvs.in>",
+        "Pramod Kumar <pramod.kumar@tvs.in>",
+        `A Dinesh <${dinesh}>`,
+        `Hiroyuki Takase <${hiro}>`,
+      ],
+    };
+  }
+
+  if (
+    state.includes("andhra") ||
+    state === "ap" ||
+    state.includes("telangana") ||
+    state === "ts"
+  ) {
+    return {
+      to: ["Naveen Adimulam <naveen.adimulam@tvs.in>"],
+      cc: [`A Dinesh <${dinesh}>`, `Hiroyuki Takase <${hiro}>`],
+    };
+  }
+
+  return {
+    to: ["tvscertified@gmail.com"],
+    cc: [],
+  };
 }
