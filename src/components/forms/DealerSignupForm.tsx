@@ -42,7 +42,7 @@ export function DealerSignupForm() {
     setError(null);
 
     try {
-      const response = await fetch("/dealer-request", {
+      const response = await fetch("/form/dealer-request", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

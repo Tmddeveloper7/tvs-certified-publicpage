@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
   response.headers.set("X-Request-Id", requestId);
 
   // Prevent caching of sensitive pages
-  if (request.nextUrl.pathname.startsWith("/contact")) {
+  if (request.nextUrl.pathname.startsWith("/form")) {
     response.headers.set(
       "Cache-Control",
       "no-store, no-cache, must-revalidate, proxy-revalidate"

@@ -26,7 +26,7 @@ export function ContactForm() {
     };
 
     try {
-      const res = await fetch("/contact", {
+      const res = await fetch("/form/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
