@@ -115,7 +115,7 @@ export function VehiclesSection() {
         const data: ApiVehicle[] = Array.isArray(payload?.data) ? payload.data : [];
 
         if (!cancelled && data.length > 0) {
-          const mapped: CardVehicle[] = data.map((item, idx) => ({
+          const mapped: CardVehicle[] = data.filter((item) => item.image_url).map((item, idx) => ({
             id: `${item.MakeModel ?? "vehicle"}-${idx}`,
             model: item.MakeModel ?? "TVS Certified Vehicle",
             inspection: `${item.year_of_mfg ?? ""} • ${item.fuel_type ?? "Fuel"} • ${item.transmission ?? "Transmission"
